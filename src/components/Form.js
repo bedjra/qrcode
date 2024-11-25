@@ -23,7 +23,7 @@ const Form = () => {
     - Communication suffisante : ${formData.communicationSuffisante}`;
     
     // Numéro de téléphone WhatsApp
-    const phoneNumber = "22997943844";
+    const phoneNumber = "22990000379";
 
     // URL WhatsApp avec message encodé
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -34,7 +34,7 @@ const Form = () => {
 
   return (
     <div className="form-container">
-      <h1>Formulaire de Satisfaction</h1>
+      <h1>Formulaire de Renseignement</h1>
       <form onSubmit={handleSubmit}>
         {/* Question 1: Connaissance de Digicomm Group */}
         <div className="question">
