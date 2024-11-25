@@ -1,12 +1,8 @@
 import React from "react";
-import Scanner from "./components/scanner";
+import Form from "./components/Form";
 
 const App = () => {
-  return (
-    <div>
-      <Scanner />
-    </div>
-  );
+  return <Form />;
 };
 
 export default App;

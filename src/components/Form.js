@@ -1,14 +1,127 @@
-import React from "react";
+import React, { useState } from "react";
+import "./Form.css"; // Importation du fichier CSS pour le style
 
 const Form = () => {
+  const [formData, setFormData] = useState({
+    connaissanceDigitcomm: "",
+    satisfaction: "",
+    communicationSuffisante: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Données du formulaire soumises: ", formData);
+    // Vous pouvez ajouter une action de soumission, par exemple une requête API ici
+  };
+
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Bienvenue sur le formulaire !</h1>
-      <p>Remplissez ce formulaire pour participer au concours.</p>
-      <form>
-        <input type="text" placeholder="Nom" required style={{ margin: "10px" }} />
-        <input type="email" placeholder="Email" required style={{ margin: "10px" }} />
-        <button type="submit" style={{ marginTop: "20px" }}>Soumettre</button>
+    <div className="form-container">
+      <h1>Formulaire de Satisfaction</h1>
+      <form onSubmit={handleSubmit}>
+        {/* Question 1: Connaissance de Digitcomm Group */}
+        <div className="question">
+          <p>Connaissez-vous Digitcomm Group ?</p>
+          <label>
+            <input
+              type="radio"
+              name="connaissanceDigitcomm"
+              value="Oui"
+              onChange={handleChange}
+              checked={formData.connaissanceDigitcomm === "Oui"}
+            />
+            Oui
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="connaissanceDigitcomm"
+              value="Non"
+              onChange={handleChange}
+              checked={formData.connaissanceDigitcomm === "Non"}
+            />
+            Non
+          </label>
+        </div>
+
+        {/* Question 2: Degré de satisfaction */}
+        <div className="question">
+          <p>Quel est votre degré de satisfaction ?</p>
+          <label>
+            <input
+              type="radio"
+              name="satisfaction"
+              value="Très satisfait"
+              onChange={handleChange}
+              checked={formData.satisfaction === "Très satisfait"}
+            />
+            Très satisfait
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="satisfaction"
+              value="Satisfait"
+              onChange={handleChange}
+              checked={formData.satisfaction === "Satisfait"}
+            />
+            Satisfait
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="satisfaction"
+              value="Peu satisfait"
+              onChange={handleChange}
+              checked={formData.satisfaction === "Peu satisfait"}
+            />
+            Peu satisfait
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="satisfaction"
+              value="Pas du tout satisfait"
+              onChange={handleChange}
+              checked={formData.satisfaction === "Pas du tout satisfait"}
+            />
+            Pas du tout satisfait
+          </label>
+        </div>
+
+        {/* Question 3: Communication suffisante */}
+        <div className="question">
+          <p>Pensez-vous que Digitcomm Group communique assez ?</p>
+          <label>
+            <input
+              type="radio"
+              name="communicationSuffisante"
+              value="Oui"
+              onChange={handleChange}
+              checked={formData.communicationSuffisante === "Oui"}
+            />
+            Oui
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="communicationSuffisante"
+              value="Non"
+              onChange={handleChange}
+              checked={formData.communicationSuffisante === "Non"}
+            />
+            Non
+          </label>
+        </div>
+
+        {/* Soumettre le formulaire */}
+        <button type="submit" className="submit-button">
+          Envoyer
+        </button>
       </form>
     </div>
   );
