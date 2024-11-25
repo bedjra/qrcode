@@ -3,7 +3,7 @@ import "./Form.css"; // Importation du fichier CSS pour le style
 
 const Form = () => {
   const [formData, setFormData] = useState({
-    connaissanceDigitcomm: "",
+    connaissanceDigicomm: "",
     satisfaction: "",
     communicationSuffisante: ""
   });
@@ -20,29 +20,30 @@ const Form = () => {
   };
 
   return (
+
     <div className="form-container">
       <h1>Formulaire de Satisfaction</h1>
       <form onSubmit={handleSubmit}>
-        {/* Question 1: Connaissance de Digitcomm Group */}
+        {/* Question 1: Connaissance de Digicomm Group */}
         <div className="question">
-          <p>Connaissez-vous Digitcomm Group ?</p>
+          <p>Connaissez-vous Digicomm Group ?</p>
           <label>
             <input
               type="radio"
-              name="connaissanceDigitcomm"
+              name="connaissanceDigicomm"
               value="Oui"
               onChange={handleChange}
-              checked={formData.connaissanceDigitcomm === "Oui"}
+              checked={formData.connaissanceDigicomm === "Oui"}
             />
             Oui
           </label>
           <label>
             <input
               type="radio"
-              name="connaissanceDigitcomm"
+              name="connaissanceDigicomm"
               value="Non"
               onChange={handleChange}
-              checked={formData.connaissanceDigitcomm === "Non"}
+              checked={formData.connaissanceDigicomm === "Non"}
             />
             Non
           </label>
@@ -95,7 +96,7 @@ const Form = () => {
 
         {/* Question 3: Communication suffisante */}
         <div className="question">
-          <p>Pensez-vous que Digitcomm Group communique assez ?</p>
+          <p>Pensez-vous que Digicomm Group communique assez ?</p>
           <label>
             <input
               type="radio"
