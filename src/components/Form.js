@@ -5,7 +5,7 @@ const Form = () => {
   const [formData, setFormData] = useState({
     connaissanceDigicomm: "",
     satisfaction: "",
-    communicationSuffisante: ""
+    communicationSuffisante: "",
   });
 
   const handleChange = (e) => {
@@ -15,12 +15,24 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Données du formulaire soumises: ", formData);
-    // Vous pouvez ajouter une action de soumission, par exemple une requête API ici
+
+    // Construire le message à envoyer sur WhatsApp
+    const message = `Formulaire de Satisfaction : 
+    - Connaissance de Digicomm : ${formData.connaissanceDigicomm}
+    - Degré de satisfaction : ${formData.satisfaction}
+    - Communication suffisante : ${formData.communicationSuffisante}`;
+    
+    // Numéro de téléphone WhatsApp
+    const phoneNumber = "22997943844";
+
+    // URL WhatsApp avec message encodé
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    // Ouvrir WhatsApp
+    window.open(whatsappURL, "_blank");
   };
 
   return (
-
     <div className="form-container">
       <h1>Formulaire de Satisfaction</h1>
       <form onSubmit={handleSubmit}>
