@@ -23,7 +23,7 @@ const Form = () => {
     - Communication suffisante : ${formData.communicationSuffisante}`;
     
     // Numéro de téléphone WhatsApp
-    const phoneNumber = "22990000379";
+    const phoneNumber = "22890000379";
 
     // URL WhatsApp avec message encodé
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
